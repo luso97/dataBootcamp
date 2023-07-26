@@ -7,7 +7,7 @@ from prefect_gcp import GcpCredentials
 from prefect.filesystems import GCS
 
 
-@task(retries=3)
+@task(retries=3,log_prints=True)
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
     # if randint(0, 1) > 0:
